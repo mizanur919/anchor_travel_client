@@ -19,6 +19,8 @@ import ManageAllOrders from "./Pages/ManageAllOrders/ManageAllOrders";
 import Blogs from "./Pages/Dashboard/Blogs/Blogs";
 import AllBlogs from "./Pages/AllBlogs/AllBlogs";
 import BlogDetails from "./Pages/AllBlogs/BlogDetails/BlogDetails";
+import Reviews from "./Pages/Dashboard/Reviews/Reviews";
+import Canvas from "./Pages/Shared/Canvas/Canvas";
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
       <AuthProvider>
         <Router>
           <Header></Header>
+          <Canvas></Canvas>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -48,6 +51,9 @@ function App() {
             <Route exact path="/blogView/:serviceId">
               <BlogDetails></BlogDetails>
             </Route>
+            <Route exact path="/servicedetailsView/:serviceId">
+              <ServiceDetails></ServiceDetails>
+            </Route>
             <Route exact path="/manageOrders">
               <ManageAllOrders></ManageAllOrders>
             </Route>
@@ -57,12 +63,12 @@ function App() {
             <PrivateRoute path="/blogPost">
               <Blogs></Blogs>
             </PrivateRoute>
+            <PrivateRoute path="/reviews">
+              <Reviews></Reviews>
+            </PrivateRoute>
             <PrivateRoute exact path="/servicedetails/:serviceId">
               <ServiceDetails></ServiceDetails>
             </PrivateRoute>
-            <Route exact path="/servicedetailsView/:serviceId">
-              <ServiceDetails></ServiceDetails>
-            </Route>
             <Route path="/login">
               <Login></Login>
             </Route>

@@ -26,7 +26,7 @@ const Header = () => {
 
           <Navbar.Collapse id="navbarScroll" className="justify-content-end">
             <Nav
-              className="mr-auto my-2 my-lg-0 my-nav"
+              className="mr-auto my-2 my-lg-0 my-nav d-flex  align-items-center"
               style={{ color: "white" }}
               navbarScroll
             >
@@ -40,9 +40,14 @@ const Header = () => {
                 <>
                   {/* <Button onClick={logOut} variant="info"><span className="text-white">LogOut</span></Button> */}
                   {/* <span className="fw-bold"> Hello, {user.displayName} </span> */}
-
+                  <Link to="/reviews">
+                    <Button variant="info btn-sm">
+                      <span className="text-white">Share Experience</span>
+                    </Button>
+                  </Link>
+                  &nbsp; &nbsp;
                   <Link to="/blogPost">
-                    <Button variant="info">
+                    <Button variant="info btn-sm">
                       <span className="text-white">Create a post</span>
                     </Button>
                   </Link>
@@ -52,7 +57,6 @@ const Header = () => {
                   <Nav.Link as={Link} to="/dashboard">
                     <span className="text-white">Add New Service</span>
                   </Nav.Link> */}
-
                   <NavDropdown
                     title={
                       <img
@@ -87,8 +91,14 @@ const Header = () => {
                 // </div>
                 <div>
                   <Link to="/blogPost">
-                    <Button variant="info">
+                    <Button variant="info btn-sm">
                       <span className="text-white">Create a post</span>
+                    </Button>
+                  </Link>
+                  &nbsp; &nbsp;
+                  <Link to="/reviews">
+                    <Button variant="info btn-sm">
+                      <span className="text-white">Share Experience</span>
                     </Button>
                   </Link>
                 </div>

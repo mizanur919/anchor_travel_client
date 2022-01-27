@@ -5,7 +5,7 @@ import "./AllBlogs.css";
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://evening-cliffs-29156.herokuapp.com/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);

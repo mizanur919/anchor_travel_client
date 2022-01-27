@@ -6,7 +6,7 @@ const ServiceDetails = () => {
   const { serviceId } = useParams();
   const [service, setService] = useState({});
   useEffect(() => {
-    const url = `https://haunted-phantom-42348.herokuapp.com/services/${serviceId}`;
+    const url = `http://localhost:5000/reviews/${serviceId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setService(data));
@@ -16,18 +16,14 @@ const ServiceDetails = () => {
       <div className="container">
         <div className="row py-4">
           <div className="col-md-6">
-            <h3>{service?.title}</h3>
-            <p>{service?.description}</p>
-            <h5>Fee: ${service?.price}</h5>
-            <Link
-              to={`/placeOrder/${service._id}`}
-              className="btn btn-info text-dark"
-            >
-              <i className="fas fa-cart-plus"></i> Book Now
-            </Link>
+            <h3>Location: {service?.location}</h3>
+            <p>{service?.shortDescription}</p>
+            <h5>Expense: ${service?.expense}</h5>
+            <h3 style={{ fontSize: "24px" }}>Rating: {service?.rating} / 5</h3>
+            <p style={{ fontSize: "24px" }}>Date: {service?.date}</p>
           </div>
           <div className="col-md-6 d-flex justify-content-center">
-            <img className="rounded w-75" src={service?.img} alt="" />
+            <img className="rounded w-75" src={service?.image} alt="" />
           </div>
         </div>
       </div>

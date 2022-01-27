@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Blogs.css";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://evening-cliffs-29156.herokuapp.com/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
@@ -14,38 +15,47 @@ const Blogs = () => {
       <div className="row row-cols-1 row-cols-md-4 g-4">
         {blogs.map((blog) => (
           <div className="col" key={blog._id}>
-            <div className="card">
-              <img src={blog.img} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">{blog.title}</h5>
-                <p className="card-text">
-                  {blog.description.substring(0, 150)}
-                </p>
-                <div className="d-flex justify-content-around">
-                  <p>
-                    <i
-                      className="far fa-money-bill-alt"
-                      sytle={{ color: "#192a56" }}
-                    ></i>
-                    &nbsp; $ {blog.cost}
+            <Link
+              to={`/blogView/${blog._id}`}
+              className="text-dark"
+              style={{ textDecoration: "none" }}
+            >
+              <div className="card">
+                <img src={blog.img} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{blog.title}</h5>
+                  <p className="card-text">
+                    {blog.description.substring(0, 150)}
                   </p>
-                  <p>
-                    <i
-                      className="fas fa-map-marker-alt"
-                      sytle={{ color: "#192a56" }}
-                    ></i>
-                    &nbsp;
-                    {blog.location}{" "}
-                  </p>
-                </div>
-                <div className="d-flex justify-content-around">
-                  <p>
-                    <i class="fas fa-columns" sytle={{ color: "#192a56" }}></i>
-                    &nbsp; {blog.category}
-                  </p>
+                  <div className="d-flex justify-content-around">
+                    <p>
+                      <i
+                        className="far fa-money-bill-alt"
+                        sytle={{ color: "#192a56" }}
+                      ></i>
+                      &nbsp; $ {blog.cost}
+                    </p>
+                    <p>
+                      <i
+                        className="fas fa-map-marker-alt"
+                        sytle={{ color: "#192a56" }}
+                      ></i>
+                      &nbsp;
+                      {blog.location}{" "}
+                    </p>
+                  </div>
+                  <div className="d-flex justify-content-around">
+                    <p>
+                      <i
+                        class="fas fa-columns"
+                        sytle={{ color: "#192a56" }}
+                      ></i>
+                      &nbsp; {blog.category}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
         {/* <div className="col">

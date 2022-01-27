@@ -1,27 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./Blogs.css";
+import React, { useRef, useState, useEffect } from "react";
+import "./Reviews.css";
+import useAuth from "../../../contexts/useAuth";
 
-const Blogs = () => {
-  const tourCategory = [
-    "Business Travel",
-    "Solo Travel",
-    "Travel With Friends",
-    "Family Travel",
-    "Travel With Group",
-    "Luxury Travel",
-    "Adventure Travel",
-  ];
-  const titleRef = useRef();
-  const descriptionRef = useRef();
-  const costRef = useRef();
-  const imgRef = useRef();
-  const categoryRef = useRef();
-  const travelerInfoRef = useRef();
+const Reviews = () => {
+  const { user } = useAuth();
+  const dateRef = useRef();
   const locationRef = useRef();
+  const costRef = useRef();
+  const ratingRef = useRef();
+  const descriptionRef = useRef();
+  const imgRef = useRef();
 
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("https://evening-cliffs-29156.herokuapp.com/blogs")
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -29,24 +21,25 @@ const Blogs = () => {
   // Add Service
   const handleAddUser = (e) => {
     e.preventDefault();
-    const title = titleRef.current.value;
-    const description = descriptionRef.current.value;
-    const cost = costRef.current.value;
-    const img = imgRef.current.value;
-    const category = categoryRef.current.value;
-    const travelerInfo = travelerInfoRef.current.value;
+    const date = dateRef.current.value;
     const location = locationRef.current.value;
+    const expense = costRef.current.value;
+    const rating = ratingRef.current.value;
+    const shortDescription = descriptionRef.current.value;
+    const image = imgRef.current.value;
 
     const newUser = {
-      title,
-      description,
-      cost,
-      img,
-      category,
-      travelerInfo,
+      date: new Date(date).toLocaleDateString(),
       location,
+      expense,
+      rating,
+      shortDescription,
+      image,
+      user: user.displayName,
+      uid: user.uid,
+      userPhoto: user.photoURL,
     };
-    fetch("https://evening-cliffs-29156.herokuapp.com/blogs", {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,21 +51,21 @@ const Blogs = () => {
         if (data.insertedId) {
           alert("Data added");
           e.target.reset();
-          fetch("https://evening-cliffs-29156.herokuapp.com/blogs")
+          fetch("http://localhost:5000/reviews")
             .then((res) => res.json())
             .then((data) => setServices(data));
         }
       });
   };
   useEffect(() => {
-    fetch("https://evening-cliffs-29156.herokuapp.com/blogs")
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
 
   // Handle Delete
   const handleDelete = (id) => {
-    const url = `https://evening-cliffs-29156.herokuapp.com/blogs/${id}`;
+    const url = `http://localhost:5000/reviews/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -91,9 +84,18 @@ const Blogs = () => {
     <div className="container">
       <div className="row py-4">
         <div className="col-md-4">
-          <h2>Add New Blog Post</h2>
+          <h2>Share Your Experience</h2>
           <form onSubmit={handleAddUser}>
-            <input type="text" ref={titleRef} placeholder="Title" />
+            <input type="date" ref={dateRef} />
+            <br />
+            <br />
+            <input type="text" ref={locationRef} placeholder="Location" />
+            <br />
+            <br />
+            <input type="text" ref={costRef} placeholder="Cost" />
+            <br />
+            <br />
+            <input type="text" ref={ratingRef} placeholder="Rating" />
             <br />
             <br />
             <textarea
@@ -104,13 +106,7 @@ const Blogs = () => {
             ></textarea>
             <br />
             <br />
-            <input type="text" ref={costRef} placeholder="Cost" />
-            <br />
-            <br />
             <input type="text" ref={imgRef} placeholder="Location Image URL" />
-            <br />
-            <br />
-            <input type="text" ref={categoryRef} placeholder="Category" />
             <br />
             <br />
             {/* <select>
@@ -122,16 +118,6 @@ const Blogs = () => {
             </select>
             <br />
             <br /> */}
-            <input
-              type="text"
-              ref={travelerInfoRef}
-              placeholder="About yourself"
-            />
-            <br />
-            <br />
-            <input type="text" ref={locationRef} placeholder="Location" />
-            <br />
-            <br />
             <input type="submit" value="Add" />
           </form>
         </div>
@@ -140,29 +126,25 @@ const Blogs = () => {
             <table className="table table-bordered">
               <thead>
                 <tr>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Cost</th>
-                  <th>Category</th>
-                  <th>Image</th>
+                  <th>Date</th>
                   <th>Location</th>
+                  <th>Cost</th>
+                  <th>Image</th>
                 </tr>
               </thead>
               <tbody>
                 {services.map((service) => (
                   <tr key={service._id}>
-                    <td>{service.title}</td>
-                    <td>{service.description.slice(0, 100)}</td>
-                    <td>{service.cost}</td>
-                    <td>{service.category}</td>
+                    <td>{service.date}</td>
+                    <td>{service.location}</td>
+                    <td>{service.expense}</td>
                     <td>
                       <img
                         style={{ width: "100px", height: "auto" }}
-                        src={service.img}
+                        src={service.image}
                         alt=""
                       />
                     </td>
-                    <td>{service.location}</td>
                     <td
                       style={{
                         display: "flex",
@@ -195,4 +177,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default Reviews;
