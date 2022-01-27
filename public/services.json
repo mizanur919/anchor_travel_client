@@ -1,0 +1,65 @@
+[
+    {
+      "title": "3 Days 2 Nights in Hoi An Old Town – VietNam Tour",
+      "description": "Varius massa maecenas et id dictumst mattis. Donec fringilla ac parturient posuere id phasellus erat elementum nullam lacus cursus rhoncus parturient vitae praesent quisque nascetur molestie quis",
+      "price": 200,
+      "img": "https://i.ibb.co/1s4t5kg/img1.png",
+      "tourType": "Specific Tour",
+      "duration": "3 days",
+      "groupSize": "10 People"
+    },
+    {
+      "title": "Bali Full-Day Traditional Village Sightseeing Trip",
+      "description": "This sightseeing tour is for travelers looking to make the most of their time in Bali: This full-day excursion lets you tick off the majority of Bali’s highlights in just one day, making it the perfect choice for visitors with limited time. Travel with ease between Kintamani Volcano, Sacred Monkey Forest Sanctuary, traditional villages, and many more sites, and enjoy the convenience of hotel pickup and drop-off as well as a buffet lunch.",
+      "price": 300,
+      "img": "https://i.ibb.co/2hDgyqN/img2.png",
+      "tourType": "Premium Tour",
+      "duration": "4 days",
+      "groupSize": "8 People"
+    },
+    {
+      "title": "Travelling in Cambodia is the Ultimate SEA Experience.",
+      "description": "For travelers looking to make the most of their time in Bali: This full-day excursion lets you tick off the majority of Bali’s highlights in just one day, making it the perfect choice for visitors with limited time. Travel with ease between Kintamani Volcano, Sacred Monkey Forest Sanctuary, traditional villages, and many more sites, and enjoy the convenience of hotel pickup and drop-off as well as a buffet lunch.",
+      "price": 430,
+      "img": "https://i.ibb.co/BLtrVbY/img3.png",
+      "tourType": "Platinum Pack",
+      "duration": "2 Days 2 Nights",
+      "groupSize": "N/A"
+    },
+    {
+      "title": "Neverland Phi Phi Boat Tour – Koh Phi Phi Island Thailand",
+      "description": "Much of this limestone island is a protected marine sanctuary … meaning you’ll enjoy pristine beaches, as well as amazing snorkelling and snorkelling. Some local dive shops receive very good reviews from our visitors. When you return to the mainland, relax more with a yoga session on the beach.",
+      "price": 250,
+      "img": "https://i.ibb.co/RQhT0H1/img4.png",
+      "tourType": "Daily Tour",
+      "duration": "1 Days",
+      "groupSize": "6 People"
+    },
+    {
+      "title": "Hue City Sightseeing Tour with Huong River Cruise",
+      "description": "Hue is the national city of Vietnam and used to be the capital of Vietnam during the feudal period under the Nguyen Dynasty. Currently, the city is the center of many aspects of the Central region such as culture, politics, health, education, tourism, science … The outstanding places are the Perfume River and the legacy of feudal dynasties, the city has five UNESCO titles in Vietnam: Complex of Hue Monuments, Hue Royal court music, Nguyen Dynasty woodblocks, Nguyen Dynasty’s Chau dynasty and the system of poetry on Hue imperial architecture . Hue is one of the three largest urban centers in the North Central Coast and one of the largest urban areas in Vietnam",
+      "price": 290,
+      "img": "https://i.ibb.co/q9CdvtP/img5.png",
+      "tourType": "Daily Tour",
+      "duration": "8 Hours",
+      "groupSize": "4 People"
+    },
+    {
+      "title": "Tonle Sap Floating Village Tour from Siem Reap",
+      "description": "Tonlé Sap or Cambodian Lake is a system of rivers and lakes of great importance to Cambodia. This is Southeast Asia’s largest freshwater lake and was recognized by UNESCO as a world biosphere reserve in 1997. Tonlé Sap means “large freshwater river” but is often translated as “Great Lake” in languages. other languages; “Bien Ho” is the Vietnamese name for the size of this lake that makes it invisible.",
+      "price": 450,
+      "img": "https://i.ibb.co/QpMBqhm/img6.png",
+      "tourType": "Venial Tour",
+      "duration": "14 Hours",
+      "groupSize": "7 People"
+    },    
+    {
+      "title": "Sap Floating Village Tour from Siem Reap",
+      "description": "Cambodian Lake is a system of rivers and lakes of great importance to Cambodia. This is Southeast Asia’s largest freshwater lake and was recognized by UNESCO as a world biosphere reserve in 1997. Tonlé Sap means “large freshwater river” but is often translated as “Great Lake” in languages. other languages; “Bien Ho” is the Vietnamese name for the size of this lake that makes it invisible.",
+      "price": 760,
+      "img": "https://i.ibb.co/BLtrVbY/img3.png",
+      "tourType": "Pro Tour",
+      "duration": "12 Hours",
+      "groupSize": "5 People"
+    }
+  ]
