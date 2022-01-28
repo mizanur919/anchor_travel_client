@@ -15,7 +15,7 @@ const Reviews = () => {
 
   // View all reviews
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://evening-cliffs-29156.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -41,7 +41,7 @@ const Reviews = () => {
       uid: user.uid,
       userPhoto: user.photoURL,
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://evening-cliffs-29156.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -53,7 +53,7 @@ const Reviews = () => {
         if (data.insertedId) {
           alert("Data added");
           e.target.reset();
-          fetch("http://localhost:5000/reviews")
+          fetch("https://evening-cliffs-29156.herokuapp.com/reviews")
             .then((res) => res.json())
             .then((data) => setServices(data));
         }
@@ -62,7 +62,7 @@ const Reviews = () => {
 
   // Handle Delete
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/reviews/${id}`;
+    const url = `https://evening-cliffs-29156.herokuapp.com/reviews/${id}`;
     fetch(url, {
       method: "DELETE",
     })

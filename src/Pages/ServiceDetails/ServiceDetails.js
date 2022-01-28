@@ -6,7 +6,7 @@ const ServiceDetails = () => {
   const { serviceId } = useParams();
   const [service, setService] = useState({});
   useEffect(() => {
-    const url = `http://localhost:5000/reviews/${serviceId}`;
+    const url = `https://evening-cliffs-29156.herokuapp.com/reviews/${serviceId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setService(data));

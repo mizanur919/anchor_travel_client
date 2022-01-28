@@ -3,18 +3,20 @@ import "./AllReviews.css";
 import { Link } from "react-router-dom";
 import Header from "../../Shared/Header/Header";
 import Footer from "../../Shared/Footer/Footer";
+import Canvas from "../../Shared/Canvas/Canvas";
 
 const AllReviews = () => {
   // const {services, totalServices} = useAuth();
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://evening-cliffs-29156.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
   return (
     <>
       <Header></Header>
+      <Canvas></Canvas>
       <div className="p-5" id="services">
         <div className="container">
           <h2 className="text-center mb-5">Shared Experiences</h2>
