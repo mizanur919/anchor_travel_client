@@ -21,14 +21,14 @@ import AllBlogs from "./Pages/AllBlogs/AllBlogs";
 import BlogDetails from "./Pages/AllBlogs/BlogDetails/BlogDetails";
 import Reviews from "./Pages/Dashboard/Reviews/Reviews";
 import Canvas from "./Pages/Shared/Canvas/Canvas";
+import AdminPanel from "./Pages/AdminPanel/AdminPanel";
+import AllReviews from "./Pages/AllServices/AllReviews/AllReviews";
 
 function App() {
   return (
     <div>
       <AuthProvider>
         <Router>
-          <Header></Header>
-          <Canvas></Canvas>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -48,6 +48,9 @@ function App() {
             <Route exact path="/allBlogs">
               <AllBlogs></AllBlogs>
             </Route>
+            <Route exact path="/allReviews">
+              <AllReviews></AllReviews>
+            </Route>
             <Route exact path="/blogView/:serviceId">
               <BlogDetails></BlogDetails>
             </Route>
@@ -62,6 +65,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/blogPost">
               <Blogs></Blogs>
+            </PrivateRoute>
+            <PrivateRoute path="/adminPanel">
+              <AdminPanel></AdminPanel>
             </PrivateRoute>
             <PrivateRoute path="/reviews">
               <Reviews></Reviews>
@@ -79,7 +85,6 @@ function App() {
               <NotFound></NotFound>
             </Route>
           </Switch>
-          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>

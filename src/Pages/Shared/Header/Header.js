@@ -36,28 +36,24 @@ const Header = () => {
               <Nav.Link as={HashLink} to="/allBlogs">
                 <span className="text-white">Blogs</span>
               </Nav.Link>
+              <Nav.Link as={HashLink} to="/allReviews">
+                <span className="text-white">Reviews</span>
+              </Nav.Link>
               {user.email ? (
                 <>
-                  {/* <Button onClick={logOut} variant="info"><span className="text-white">LogOut</span></Button> */}
-                  {/* <span className="fw-bold"> Hello, {user.displayName} </span> */}
-                  <Link to="/reviews">
+                  <Link to="/adminPanel">
                     <Button variant="info btn-sm">
                       <span className="text-white">Share Experience</span>
                     </Button>
                   </Link>
                   &nbsp; &nbsp;
-                  <Link to="/blogPost">
+                  <Link to="/adminPanel">
                     <Button variant="info btn-sm">
                       <span className="text-white">Create a post</span>
                     </Button>
                   </Link>
-                  {/* <Nav.Link as={HashLink} to="/manageOrders">
-                    <span className="text-white">Manage Orders</span>
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/dashboard">
-                    <span className="text-white">Add New Service</span>
-                  </Nav.Link> */}
                   <NavDropdown
+                    className="user-dropdown"
                     title={
                       <img
                         style={{
@@ -71,7 +67,13 @@ const Header = () => {
                   >
                     <div className="text-center">
                       <h6>{user.displayName}</h6>
-                      <p className="m-0 mb-2">{user.email}</p>
+                      <Link to="/adminPanel">
+                        <Button variant="success">
+                          <span className="text-white">Dashboard</span>
+                        </Button>
+                      </Link>
+                      <br />
+                      <br />
                       <Link to="/home">
                         <Button onClick={logOut} variant="info">
                           <span className="text-white">LogOut</span>
@@ -81,22 +83,14 @@ const Header = () => {
                   </NavDropdown>
                 </>
               ) : (
-                // <div className="d-flex">
-                //   <Nav.Link as={Link} to="/login">
-                //     <span className="text-white">Login</span>
-                //   </Nav.Link>
-                //   <Nav.Link as={Link} className="signup-button" to="/signup">
-                //     <span className="text-white">Sign up</span>
-                //   </Nav.Link>
-                // </div>
                 <div>
-                  <Link to="/blogPost">
+                  <Link to="/adminPanel">
                     <Button variant="info btn-sm">
                       <span className="text-white">Create a post</span>
                     </Button>
                   </Link>
                   &nbsp; &nbsp;
-                  <Link to="/reviews">
+                  <Link to="/adminPanel">
                     <Button variant="info btn-sm">
                       <span className="text-white">Share Experience</span>
                     </Button>

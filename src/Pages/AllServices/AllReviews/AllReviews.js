@@ -1,47 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Button, Offcanvas } from "react-bootstrap";
+import "./AllReviews.css";
 import { Link } from "react-router-dom";
+import Header from "../../Shared/Header/Header";
+import Footer from "../../Shared/Footer/Footer";
 
-const Canvas = () => {
+const AllReviews = () => {
+  // const {services, totalServices} = useAuth();
   const [services, setServices] = useState([]);
-  const filteredData = services.filter((singleData) => singleData.rating > 4);
-  console.log(filteredData);
   useEffect(() => {
     fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <>
-      <Button
-        variant="primary"
-        onClick={handleShow}
-        style={{
-          position: "fixed",
-          right: "0",
-          top: "220px",
-          zIndex: "9999",
-          color: "#ffffff",
-          backgroundColor: "#192a56",
-          border: "none",
-          fontWeight: "bold",
-        }}
-      >
-        <i class="fas fa-fighter-jet" style={{ fontSize: "35px" }}></i>
-        <br />
-        Top <br /> Rated Spots
-      </Button>
-
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Top Rate Spots</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <div className="row row-cols-1 row-cols-md-1 g-4">
-            {filteredData.map((service) => (
+      <Header></Header>
+      <div className="p-5" id="services">
+        <div className="container">
+          <h2 className="text-center mb-5">Shared Experiences</h2>
+          <div className="row row-cols-1 row-cols-md-4 g-4">
+            {services.map((service) => (
               <div key={service.id}>
                 <Link
                   to={`/servicedetailsView/${service._id}`}
@@ -104,10 +82,11 @@ const Canvas = () => {
               </div>
             ))}
           </div>
-        </Offcanvas.Body>
-      </Offcanvas>
+        </div>
+      </div>
+      <Footer></Footer>
     </>
   );
 };
 
-export default Canvas;
+export default AllReviews;

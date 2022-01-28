@@ -12,6 +12,8 @@ const Reviews = () => {
   const imgRef = useRef();
 
   const [services, setServices] = useState([]);
+
+  // View all reviews
   useEffect(() => {
     fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
@@ -57,11 +59,6 @@ const Reviews = () => {
         }
       });
   };
-  useEffect(() => {
-    fetch("http://localhost:5000/reviews")
-      .then((res) => res.json())
-      .then((data) => setServices(data));
-  }, []);
 
   // Handle Delete
   const handleDelete = (id) => {
